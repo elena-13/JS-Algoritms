@@ -1,7 +1,34 @@
 const arr = [3,7,2,3,2,9,22];
 
+// swap inside arr
+function findSmallest1(arr, iterator) {
+  let smallest = arr[iterator];
+  let smallestIdx = iterator;
+
+  for (let i = iterator; i < arr.length; i++) {
+    if (arr[i] < smallest) {
+      smallest = arr[i];
+      smallestIdx = i;
+    }
+  }
+
+  return smallestIdx;
+}
+
+function selectionSort1(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let smallest = findSmallest(arr, i);
+    let copy = arr[i];
+    arr[i] = arr[smallest];
+    arr[smallest] = copy;
+    console.log('arr', arr);
+  }
+
+  return arr;
+}
+
 // extra copy array
-function findSmallest(arr) {
+function findSmallest2(arr) {
   let smallest = arr[0];
   let smallestIdx = 0;
 
@@ -15,7 +42,7 @@ function findSmallest(arr) {
   return smallestIdx;
 }
 
-function selectionSort(arr) {
+function selectionSort2(arr) {
   let res = [];
   let copy = [...arr];
 
@@ -27,5 +54,3 @@ function selectionSort(arr) {
 
   return res;
 }
-
-console.log(selectionSort(arr));
